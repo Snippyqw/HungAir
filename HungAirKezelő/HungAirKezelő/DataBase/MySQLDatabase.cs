@@ -12,7 +12,7 @@ namespace ConnectToMysqlDatabase
             MySQLDatabaseInterface mdi = new MySQLDatabaseInterface();
             mdi.setErrorToUserInterface(true);
             mdi.setErrorToGraphicalUserInterface(false);
-            mdi.setConnectionServerData("localhost", "pizza","3306");
+            mdi.setConnectionServerData("localhost", "hungairshop","3306");
             mdi.setConnectionUserData("root", "");
             mdi.makeConnectionToDatabase();        
 
