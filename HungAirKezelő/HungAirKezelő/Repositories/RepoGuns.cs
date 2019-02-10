@@ -9,7 +9,7 @@ using System.Data;
 
 namespace HungAirKezelő.Repositories
 {
-    class RepoGuns
+    partial class RepoGuns
     {
         List<Gun> guns;
 
@@ -45,6 +45,42 @@ namespace HungAirKezelő.Repositories
             }
         }
 
+        public void addGun(Gun editedG)
+        {
+            guns.Add(editedG);
+            addGunToDB(editedG);
+
+        }
+
+        public bool checkExist(Gun editedG)
+        {
+            foreach (Gun gu in guns)
+            {
+                if (gu.getFID() == editedG.getFID())
+                {
+                    return true;
+                }
+            }
+            return false;
+                //customers.Exists(x => x.getID() == c.getID())
+            
+        }
+
+        public int getFID()
+        {
+            MySQLDatabase ujID = new MySQLDatabase();
+            MySQLDatabaseInterface mdujid = ujID.getDatabaseInterface();
+            mdujid.open();
+            int max;
+            bool siker = int.TryParse(mdujid.executeScalarQuery("SELECT MAX(FID) FROM fegyverek"), out max);
+            if (!siker)
+            {
+                //MessageBox.Show("Nem lehet megállapítani a következő rekord kulcsát. Adatbázis lekérdezési hiba.", "Hiba...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            mdujid.close();
+            return max + 1;
+        }
+
         public DataTable getGunsDT()
         {
             DataTable gDT = new DataTable();
@@ -65,5 +101,7 @@ namespace HungAirKezelő.Repositories
 
             return gDT;
         }
+
+
     }
 }

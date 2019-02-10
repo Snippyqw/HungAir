@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HungAirKezelő.Classes
 {
-    class Gun
+    public partial class Gun
     {
         private int FID;
         private string manufact;
@@ -17,6 +17,11 @@ namespace HungAirKezelő.Classes
         private string material;
         private int price;
         private int variant;
+
+        public Gun(int FID)
+        {
+            this.FID = FID;
+        }
 
         public Gun(int FID, string manufact, string name, int type, int fps, int weight, string material, int price, int variant)
         {

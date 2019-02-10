@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Gun.cs" />
+    <Compile Include="Classes\GunSQLCommands.cs" />
     <Compile Include="DataBase\MySQLDatabase.cs" />
     <Compile Include="DataBase\MySQLDatabaseInterface.cs" />
     <Compile Include="FormGun.cs">
@@ -58,12 +59,22 @@
     <Compile Include="FormGun.Designer.cs">
       <DependentUpon>FormGun.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNewMod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNewMod.Designer.cs">
+      <DependentUpon>FormNewMod.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\RepoGunDatabaseOperation.cs" />
     <Compile Include="Repositories\RepoGuns.cs" />
     <Compile Include="Service\ServiceGun.cs" />
     <EmbeddedResource Include="FormGun.resx">
       <DependentUpon>FormGun.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNewMod.resx">
+      <DependentUpon>FormNewMod.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
