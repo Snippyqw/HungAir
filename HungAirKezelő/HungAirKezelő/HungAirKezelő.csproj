@@ -53,6 +53,7 @@
     <Compile Include="Classes\GunSQLCommands.cs" />
     <Compile Include="DataBase\MySQLDatabase.cs" />
     <Compile Include="DataBase\MySQLDatabaseInterface.cs" />
+    <Compile Include="Expections\ExcpectionsGun.cs" />
     <Compile Include="FormGun.cs">
       <SubType>Form</SubType>
     </Compile>

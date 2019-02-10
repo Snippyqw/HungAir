@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using HungAirKezelő.Repositories;
 using System.Data;
 using HungAirKezelő.Classes;
+using HungAirKezelő.Expections;
 
 namespace HungAirKezelő.Service
 {
@@ -32,11 +33,23 @@ namespace HungAirKezelő.Service
         {
             if (rg.checkExist(editedG))
             {
-
+                throw new ExcpectionsGun(editedG.getFID() + " az adatbázisban már található ilyen azonosítójú rekord!");
             }
             else
             {
                 rg.addGun(editedG);
+            }
+        }
+
+        public void editGun(Gun editedG)
+        {
+            if (!rg.checkExist(editedG))
+            {
+                throw new ExcpectionsGun(editedG.getFID() + " az adatbázisban már található ilyen azonosítójú rekord!");
+            }
+            else
+            {
+                rg.editGun(editedG);
             }
         }
     }

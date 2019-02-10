@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using HungAirKezelő.Service;
 using HungAirKezelő.Classes;
+using HungAirKezelő.Expections;
 
 namespace HungAirKezelő
 {
@@ -39,18 +40,50 @@ namespace HungAirKezelő
                 if (fnm.ShowDialog(this) == DialogResult.OK)
                 {
                     Gun editedG = fnm.editedG();
-
-                    sg.addGun(editedG);
-                    
+                    sg.addGun(editedG);                   
                 }
                 dTGVGun.DataSource = null;
                 dTGVGun.DataSource = sg.LoadGunData();
 
             }
-            catch (Exception ex)
+            catch (ExcpectionsGun eg)
+            {
+                ePNew.SetError(bNew, eg.Message);
+            }
+        }     
+
+        private void bMod_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int fid = Convert.ToInt32(dTGVGun.SelectedRows[0].Cells["Azonosító"].Value);
+
+                Gun g = new Gun(
+                    fid,
+                    dTGVGun.SelectedRows[0].Cells["Gyártó"].Value.ToString(),
+                    dTGVGun.SelectedRows[0].Cells["Név"].Value.ToString(),
+                    Convert.ToInt32(dTGVGun.SelectedRows[0].Cells["Típus"].Value),
+                    Convert.ToInt32(dTGVGun.SelectedRows[0].Cells["FPS"].Value),
+                    Convert.ToInt32(dTGVGun.SelectedRows[0].Cells["Súly"].Value),
+                    dTGVGun.SelectedRows[0].Cells["Anyag"].Value.ToString(),
+                    Convert.ToInt32(dTGVGun.SelectedRows[0].Cells["Ár"].Value),
+                    Convert.ToInt32(dTGVGun.SelectedRows[0].Cells["Variáns"].Value));
+
+                FormNewMod fnm = new FormNewMod(g);
+                if (fnm.ShowDialog(this) == DialogResult.OK)
+                {
+                    Gun editedG = fnm.editedG();
+                    sg.editGun(editedG);
+                }
+                dTGVGun.DataSource = null;
+                dTGVGun.DataSource = sg.LoadGunData();
+
+            }
+            catch (ExcpectionsGun eg)
             {
 
             }
+            
         }
 
         public int nextFID()

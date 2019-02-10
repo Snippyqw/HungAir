@@ -16,5 +16,19 @@ namespace HungAirKezelő.Classes
             return queryInsert;
         }
 
+        public string getUpdateQuery()
+        {
+            string queryUpdate = "UPDATE `fegyverek` SET gyarto = '" + getManufact() + "', " +
+                "nev = '" + getName() + "', " +
+                "tipus = '"+getType()+"', " +
+                "FPS = '"+getFps()+"', " +
+                "suly = '"+getWeight()+"', " +
+                "anyag = '"+getMaterial()+"', " +
+                "ar = '"+getPrice()+"', " +
+                "varians = '"+getVariant()+"' " +
+                "WHERE FID = '" + getFID() + "' ;";
+            return queryUpdate;
+        }
+
     }
 }

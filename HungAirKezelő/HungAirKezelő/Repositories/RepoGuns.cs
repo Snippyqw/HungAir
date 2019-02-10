@@ -52,6 +52,26 @@ namespace HungAirKezelő.Repositories
 
         }
 
+        public void editGun(Gun editedG)
+        {
+            foreach (Gun g in guns)
+            {
+                if (g.getFID() == editedG.getFID())
+                {
+                    g.setManufact(editedG.getManufact());
+                    g.setName(editedG.getName());
+                    g.setType(editedG.getType());
+                    g.setFps(editedG.getFps());
+                    g.setWeight(editedG.getWeight());
+                    g.setMaterial(editedG.getMaterial());
+                    g.setPrice(editedG.getPrice());
+                    g.setVariant(editedG.getVariant());
+
+                    editGunInDB(editedG);
+                }
+            }
+        }
+
         public bool checkExist(Gun editedG)
         {
             foreach (Gun gu in guns)

@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dTGVGun = new System.Windows.Forms.DataGridView();
             this.bLoad = new System.Windows.Forms.Button();
             this.bNew = new System.Windows.Forms.Button();
             this.bDel = new System.Windows.Forms.Button();
             this.bMod = new System.Windows.Forms.Button();
+            this.ePNew = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dTGVGun)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ePNew)).BeginInit();
             this.SuspendLayout();
             // 
             // dTGVGun
@@ -66,7 +69,7 @@
             // 
             // bDel
             // 
-            this.bDel.Location = new System.Drawing.Point(103, 338);
+            this.bDel.Location = new System.Drawing.Point(132, 338);
             this.bDel.Name = "bDel";
             this.bDel.Size = new System.Drawing.Size(85, 34);
             this.bDel.TabIndex = 3;
@@ -75,12 +78,17 @@
             // 
             // bMod
             // 
-            this.bMod.Location = new System.Drawing.Point(103, 378);
+            this.bMod.Location = new System.Drawing.Point(132, 378);
             this.bMod.Name = "bMod";
             this.bMod.Size = new System.Drawing.Size(85, 34);
             this.bMod.TabIndex = 4;
             this.bMod.Text = "Módosítás";
             this.bMod.UseVisualStyleBackColor = true;
+            this.bMod.Click += new System.EventHandler(this.bMod_Click);
+            // 
+            // ePNew
+            // 
+            this.ePNew.ContainerControl = this;
             // 
             // FormGun
             // 
@@ -95,6 +103,7 @@
             this.Name = "FormGun";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dTGVGun)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ePNew)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -106,6 +115,7 @@
         private System.Windows.Forms.Button bNew;
         private System.Windows.Forms.Button bDel;
         private System.Windows.Forms.Button bMod;
+        private System.Windows.Forms.ErrorProvider ePNew;
     }
 }
 

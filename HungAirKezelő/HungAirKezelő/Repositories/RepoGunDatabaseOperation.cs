@@ -20,6 +20,14 @@ namespace HungAirKezelő.Repositories
             mdi.close();
         }
 
-
+        public void editGunInDB(Gun editedG)
+        {
+            MySQLDatabase msd = new MySQLDatabase();
+            MySQLDatabaseInterface mdi = msd.getDatabaseInterface();
+            string query = editedG.getUpdateQuery();
+            mdi.open();
+            mdi.executeDMQuery(query); //insert update delete
+            mdi.close();
+        }
     }
 }
