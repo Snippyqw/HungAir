@@ -72,6 +72,21 @@ namespace HungAirKezelő.Repositories
             }
         }
 
+        public void deleteGun(Gun delG)
+        {
+            int index = 0;
+            foreach (Gun g in guns)
+            {
+                if (g.getFID() == delG.getFID())
+                {
+                    guns.RemoveAt(index);
+                    deleteGunInDB(g);
+                    return;
+                }
+                index++;
+            }
+        }
+
         public bool checkExist(Gun editedG)
         {
             foreach (Gun gu in guns)

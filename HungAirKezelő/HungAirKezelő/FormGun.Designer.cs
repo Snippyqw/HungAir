@@ -35,8 +35,12 @@
             this.bDel = new System.Windows.Forms.Button();
             this.bMod = new System.Windows.Forms.Button();
             this.ePNew = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ePMod = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ePDel = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dTGVGun)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePNew)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ePMod)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ePDel)).BeginInit();
             this.SuspendLayout();
             // 
             // dTGVGun
@@ -75,6 +79,7 @@
             this.bDel.TabIndex = 3;
             this.bDel.Text = "Törlés";
             this.bDel.UseVisualStyleBackColor = true;
+            this.bDel.Click += new System.EventHandler(this.bDel_Click);
             // 
             // bMod
             // 
@@ -90,6 +95,14 @@
             // 
             this.ePNew.ContainerControl = this;
             // 
+            // ePMod
+            // 
+            this.ePMod.ContainerControl = this;
+            // 
+            // ePDel
+            // 
+            this.ePDel.ContainerControl = this;
+            // 
             // FormGun
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -104,6 +117,8 @@
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dTGVGun)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ePNew)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ePMod)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ePDel)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -116,6 +131,8 @@
         private System.Windows.Forms.Button bDel;
         private System.Windows.Forms.Button bMod;
         private System.Windows.Forms.ErrorProvider ePNew;
+        private System.Windows.Forms.ErrorProvider ePMod;
+        private System.Windows.Forms.ErrorProvider ePDel;
     }
 }
 

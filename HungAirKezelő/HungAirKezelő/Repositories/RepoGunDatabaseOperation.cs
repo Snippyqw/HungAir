@@ -29,5 +29,16 @@ namespace HungAirKezelő.Repositories
             mdi.executeDMQuery(query); //insert update delete
             mdi.close();
         }
+
+        public void deleteGunInDB(Gun delG)
+        {
+            MySQLDatabase msd = new MySQLDatabase();
+            MySQLDatabaseInterface mdi = msd.getDatabaseInterface();
+            string query = delG.getDeleteQuery();
+            mdi.open();
+            mdi.executeDMQuery(query); //insert update delete
+            mdi.close();
+
+        }
     }
 }

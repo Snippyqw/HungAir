@@ -81,7 +81,8 @@ namespace HungAirKezelő
             }
             catch (ExcpectionsGun eg)
             {
-
+                ePMod.SetError(bMod, eg.Message);
+                
             }
             
         }
@@ -89,6 +90,31 @@ namespace HungAirKezelő
         public int nextFID()
         {
             return sg.nextFID();
+        }
+
+        private void bDel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Gun delG = new Gun(
+                    Convert.ToInt32(dTGVGun.SelectedRows[0].Cells["Azonosító"].Value),
+                    dTGVGun.SelectedRows[0].Cells["Gyártó"].Value.ToString(),
+                    dTGVGun.SelectedRows[0].Cells["Név"].Value.ToString(),
+                    Convert.ToInt32(dTGVGun.SelectedRows[0].Cells["Típus"].Value),
+                    Convert.ToInt32(dTGVGun.SelectedRows[0].Cells["FPS"].Value),
+                    Convert.ToInt32(dTGVGun.SelectedRows[0].Cells["Súly"].Value),
+                    dTGVGun.SelectedRows[0].Cells["Anyag"].Value.ToString(),
+                    Convert.ToInt32(dTGVGun.SelectedRows[0].Cells["Ár"].Value),
+                    Convert.ToInt32(dTGVGun.SelectedRows[0].Cells["Variáns"].Value));
+                sg.delGun(delG);
+
+                dTGVGun.DataSource = null;
+                dTGVGun.DataSource = sg.LoadGunData();
+            }
+            catch (ExcpectionsGun eg)
+            {
+                ePDel.SetError(bDel, eg.Message);
+            }
         }
     }
 }

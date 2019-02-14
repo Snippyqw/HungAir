@@ -30,5 +30,11 @@ namespace HungAirKezelő.Classes
             return queryUpdate;
         }
 
+        public string getDeleteQuery()
+        {
+            string queryDelete = "DELETE FROM `fegyverek` WHERE `fegyverek`.`FID` = "+getFID()+";";
+            return queryDelete;
+        }
+
     }
 }

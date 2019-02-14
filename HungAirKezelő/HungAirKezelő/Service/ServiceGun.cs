@@ -52,5 +52,17 @@ namespace HungAirKezelő.Service
                 rg.editGun(editedG);
             }
         }
+
+        internal void delGun(Gun delG)
+        {
+            if (!rg.checkExist(delG))
+            {
+                throw new ExcpectionsGun(delG.getFID() + " az adatbázisban nem található ilyen azonosítójú rekord!");
+            }
+            else
+            {
+                rg.deleteGun(delG);
+            }
+        }
     }
 }
